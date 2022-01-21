@@ -9,6 +9,18 @@ import Foundation
 
 struct Mission: Codable, Identifiable {
     
+    var displayName: String {
+        "Apollo \(id)"
+    }
+    
+    var image: String {
+        "apollo\(id)"
+    }
+    
+    var formattedLaunchDate: String {
+        launchDate?.formatted(date: .abbreviated, time: .omitted) ?? "Not Available"
+    }
+    
     //nested struct
     struct CrewRole: Codable {
         let name: String
@@ -16,7 +28,7 @@ struct Mission: Codable, Identifiable {
     }
     
     let id: Int
-    let launchDate: String?
+    let launchDate: Date?
     let crew: [CrewRole]
     let description: String
 }
