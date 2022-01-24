@@ -26,10 +26,12 @@ struct MissionView: View {
                         .padding(.top)
                     
                     VStack(alignment: .leading) {
+                        //Divider()
                         Rectangle()
                             .frame(height: 2)
                             .foregroundColor(.lightBackground)
                             .padding(.vertical)
+                        
                         
                         Text("Mission Highlights")
                             .font(.title.bold())
@@ -52,7 +54,7 @@ struct MissionView: View {
                         HStack {
                             ForEach(crew, id: \.role) { crewMember in
                                 NavigationLink {
-                                    Text("Astronaut details")
+                                    AstronautView(astronaut: crewMember.astronaut)
                                 } label: {
                                     HStack {
                                         Image(crewMember.astronaut.id)
